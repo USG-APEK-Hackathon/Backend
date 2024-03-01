@@ -1,0 +1,33 @@
+[tool.bandit]
+exclude_dirs = ['env', 'migrations']
+
+[tool.codespell]
+skip = "poetry.lock,migrations,htmlcov,events.log"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+python_version = 3.9
+check_untyped_defs = false
+ignore_missing_imports = true
+show_error_codes = true
+warn_unused_ignores = false
+warn_redundant_casts = false
+warn_unused_configs = false
+warn_unreachable = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.local"
+
+[tool.isort]
+profile = "black"
+py_version=39
+line_length=79
+skip = ['migrations', 'env']
+
+[tool.pylint]
+ignore = ['migrations', 'env']
+
+[tool.black]
+line-length = 79
+target-version = ["py39"]
+extend-exclude = '''/migrations|/env'''

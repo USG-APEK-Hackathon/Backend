@@ -1,0 +1,30 @@
+version: '3.9'
+
+volumes:
+  local_postgres_data: {}
+
+
+services:
+  postgres:
+    image: postgres:14
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  django:
+    build:
+      context: ../../
+      dockerfile: ./docker/local/Dockerfile
+    image: local_django:0.1.0
+    container_name: local_django
+    platform: linux/x86_64
+    depends_on:
+      - postgres
+    volumes:
+      - ../../.:/app:z
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    command: /start.sh
