@@ -118,7 +118,7 @@ class GoogleLoginApi(PublicApiMixin, ApiErrorsMixin, APIView):
                 key=key,
                 value=value,
                 httponly=False,
-                domain="hobyloc.com",
+                domain="localhost:8000",
             )
 
         return response

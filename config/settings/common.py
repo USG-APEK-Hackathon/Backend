@@ -97,7 +97,7 @@ class Common(Configuration):
     )
 
     # Media files
-    MEDIA_ROOT = join(PARENT_DIR, "media", "HobyLoc")
+    MEDIA_ROOT = join(PARENT_DIR, "media")
     MEDIA_URL = "/media/"
 
     TEMPLATES = [
@@ -220,8 +220,8 @@ class Common(Configuration):
 
     # DRF Spectacular
     SPECTACULAR_SETTINGS = {
-        "TITLE": "HobyLoc",
-        "DESCRIPTION": "This is HobyLoc API server",
+        "TITLE": "Project",
+        "DESCRIPTION": "This is Project API server",
         "VERSION": "1.0.0",
         "SERVE_INCLUDE_SCHEMA": False,
         "ENUM_NAME_OVERRIDES": {

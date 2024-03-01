@@ -10,7 +10,6 @@ class Local(Common):
     DEBUG = True
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[:-1] + "1" for ip in ips] + ["127.0.0.1"]
 
     # Testing
     INSTALLED_APPS = Common.INSTALLED_APPS
@@ -18,9 +17,7 @@ class Local(Common):
 
     INSTALLED_APPS += (
         "django_nose",
-        "debug_toolbar",
     )
-    MIDDLEWARE += ("debug_toolbar.middleware.DebugToolbarMiddleware",)
     TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
     NOSE_ARGS = [
         BASE_DIR,
@@ -28,7 +25,7 @@ class Local(Common):
         "--nologcapture",
         "--with-coverage",
         "--with-progressive",
-        "--cover-package=HobyLoc",
+        "--cover-package=Project",
     ]
 
     # Mail
