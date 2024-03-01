@@ -7,6 +7,7 @@ class HumanHelthSerializer(serializers.ModelSerializer):
     class Meta:
         model = HumanHelth
         fields = '__all__'
+        read_only_fields = ['anomaly_message']
 
     def create(self, validated_data):
         validated_data['anomaly_message'] = check_for_anomaly(
