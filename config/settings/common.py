@@ -35,6 +35,7 @@ class Common(Configuration):
         "apps.core.apps.CoreConfig",
         "apps.users.apps.UsersConfig",
         "apps.google_oauth2.apps.GoogleOauth2Config",
+        "apps.aidetect.apps.AidetectConfig",
     )
 
     INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
