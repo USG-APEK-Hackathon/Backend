@@ -15,3 +15,7 @@ class HumanHelth(models.Model):
 
     def __str__(self):
         return f"{self.id}"
+
+class FirstStep(models.Model):
+    image = models.ImageField(upload_to='first_step/')
+    detected_emotion = models.CharField()

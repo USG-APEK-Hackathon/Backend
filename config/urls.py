@@ -14,6 +14,7 @@ from rest_framework_simplejwt.views import TokenBlacklistView
 from apps.users.views import (
     CustomTokenObtainPairView,
 )
+from apps.aidetect.views import ProcessMessageView
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
@@ -25,6 +26,10 @@ urlpatterns = [
     path(
         "api/v1/",
         include("config.routers", namespace="api-router"),
+    ),
+    path(
+        "api/v1/process-message/",
+        ProcessMessageView.as_view(),
     ),
     path(
         "api/v1/google-oauth2/",
